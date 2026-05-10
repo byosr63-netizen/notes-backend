@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class NoteController extends Controller
 {
-    // LIST NOTES
+
     public function index(Request $request)
     {
         return Note::where('user_id', $request->user()->id)
@@ -15,7 +15,7 @@ class NoteController extends Controller
             ->get();
     }
 
-    // CREATE NOTE
+   
     public function store(Request $request)
 {
     $request->validate([
@@ -34,7 +34,7 @@ class NoteController extends Controller
     return response()->json($note, 201);
 }
 
-    // UPDATE NOTE
+  
     public function update(Request $request, $id)
     {
         $note = Note::where('id', $id)
@@ -50,7 +50,7 @@ class NoteController extends Controller
         return response()->json($note);
     }
 
-    // DELETE NOTE
+ 
     public function destroy(Request $request, $id)
     {
         $note = Note::where('id', $id)
